@@ -15,4 +15,3 @@ export default class HolbertonClass {
     return this._size;
   }
 }
-
