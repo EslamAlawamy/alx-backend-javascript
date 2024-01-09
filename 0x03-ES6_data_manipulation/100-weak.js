@@ -1,12 +1,12 @@
 const weakMap = new WeakMap();
 
 function queryAPI(endpoint) {
-  let count = weakMap.get(endpoint) || 0;
-  count++;
-  weakMap.set(endpoint, count);
+  let called = weakMap.get(endpoint) || 0;
+  called += 1;
+  weakMap.set(endpoint, called);
 
-  if (count >= 5) {
-    throw new Error('Endpoint load is high');
+  if (called >= 5) {
+    throw Error('Endpoint load is high');
   }
 }
 
